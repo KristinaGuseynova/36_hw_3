@@ -21,14 +21,14 @@ public class PracticeFormTest {
         $("#firstName").setValue("John");
         $("#lastName").setValue("Wick");
         $("#userEmail").setValue("MrJohn@Wick.com");
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("1234567891");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").$(byText("September")).click();
         $(".react-datepicker__year-select").$(byText("1964")).click();
         $$(".react-datepicker__day").findBy(text("2")).click();
         $("#subjectsInput").setValue("phy").pressEnter();
-        $(byText("Sports")).click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("image.png");
         $("#currentAddress").setValue("Hotel Continental");
         $("#state").click();
