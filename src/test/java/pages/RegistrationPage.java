@@ -3,6 +3,8 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.TableResults;
+
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -20,7 +22,8 @@ public class RegistrationPage {
             userAddress = $("#currentAddress"),
             stateModal = $("#react-select-3-input"),
             cityModal = $("#react-select-4-input"),
-            pressSubmit = $("#submit");
+            pressSubmit = $("#submit"),
+            modalTitle = $("modal-title");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     TableResults tableResults = new TableResults();
@@ -98,5 +101,9 @@ public class RegistrationPage {
     public RegistrationPage checkResult(String key, String value){
         tableResults.checkTableResults(key, value);
         return this;
+    }
+
+    public void checkNoResult() {
+        modalTitle.shouldNotBe(exist);
     }
 }

@@ -39,5 +39,28 @@ public class PracticeFormWithPOTest extends TestBase {
 
     }
 
+    @Test
+    void minimumDataTest() {
+        registrationPage.openPage()
+                .setFirstName("John")
+                .setLastName("Wick")
+                .setGender("Male")
+                .setUserNumber("1234567891")
+                .pressSubmit();
+
+        registrationPage.checkResult("Student Name", "John Wick")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "1234567891");
+    }
+
+    @Test
+    void NoOneAnswerTest() {
+        registrationPage.openPage()
+                .pressSubmit();
+
+        registrationPage.checkNoResult();
+    }
+
+
 }
 
